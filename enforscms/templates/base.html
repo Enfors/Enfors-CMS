@@ -1,0 +1,25 @@
+<!doctype html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="canvas">
+    <div class="header">
+      {% block header %}{% endblock %}
+      <nav>
+        {% for category in categories %}
+        <div class="nav_unselected">
+          {{ category }} (cat)
+        </div>
+        {% endfor %}
+        <div class="nav_unselected">
+          Bar
+        </div>
+      </nav>
+    </div>
+    <div class="content">
+      {% block content %}{% endblock %}
+    </div>
+  </div>
+</body>

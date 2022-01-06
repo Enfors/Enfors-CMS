@@ -1,0 +1,53 @@
+/* MOBILE/GLOBAL VERSION */
+
+* {
+    margin: 0px;
+}
+
+body {
+    background-color: #dddddd;
+    border: 0px;
+    margin: 0px;
+}
+
+.canvas {
+    padding: 0px;
+    margin: 0px;
+}
+
+.header {
+    background-color: #cc2222;
+    margin: 0px;
+    padding: 10px 10px 0px 10px;
+}
+
+.nav_selected {
+    background-color: #ffffff;
+    display: inline;
+    padding: 2px 10px 5px 10px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.nav_unselected {
+    background-color: #cc7777;
+    display: inline;
+    padding: 2px 10px 5px 10px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.content {
+    background-color: #ffffff;
+    margin: 0px;
+    padding: 8px;
+}
+
+/* DESKTOP VERSION */
+
+@media only screen and (min-width: 900px) {
+    .canvas {
+        width: 760px;
+        background-color: #ffffff;
+        margin: 0px auto;
+    }
+
+}

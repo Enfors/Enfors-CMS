@@ -8,7 +8,7 @@ There are a number of different types of contents on this site.
 
 ### Articles
 
-I post articles about various topics.
+I post [articles](articles) about various topics.
 
 ### Videos
 

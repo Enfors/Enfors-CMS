@@ -1,6 +1,10 @@
+import os
+
 from flask import (
     Blueprint, render_template
 )
+
+from werkzeug.exceptions import abort
 
 import markdown
 
@@ -14,21 +18,38 @@ def index():
 
 @bp.route("/<page_name>")
 def page(page_name):
-    html = load_page(page_name)
-    return html
+    page = Page(page_name)
+
+    if page.code != 200:
+        abort(page.code, page.html)
+    print(f"Code is fine at {page.code}")
+    return page.html
 
 
-def load_page(page_name: str):
+class Page:
     """
-    Load a page from disk or cache, and return it in HTML format.
+    This class represents a page. It can load a page from disk
+    (probably in Markdown format) and convert it to HTML.
     """
-    try:
-        with open(f"page/{page_name}.md", "r") as f:
-            md_contents = f.read()
-    except FileNotFoundError:
-        return "not found"
 
-    return render_template("page/index.html",
-                           content=markdown.markdown(md_contents),
-                           categories=["Hey", "There"])
-    # return markdown.markdown(md_contents)
+    def __init__(self, name="index"):
+        self.name = name
+        self.code = None
+        if name:
+            self.code = 200
+            self.load()
+        else:
+            self.html = None
+            self.markdown = None
+
+    def load(self):
+        try:
+            with open(os.path.join("page", f"{self.name}.md"), "r") as f:
+                self.markdown = f.read()
+        except FileNotFoundError:
+            self.code = 404
+            self.html = f"File {self.name}.md not found"
+            return self.html
+
+        self.html = markdown.markdown(self.markdown)
+        return self.html

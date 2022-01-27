@@ -7,18 +7,18 @@
   <div class="canvas">
     <div class="header">
       {% block header %}{% endblock %}
-      <!--
       <nav>
-        {% for category in categories %}
+        <!--
+        {% for category in g.categories %}
         <div class="nav_unselected">
-          {{ category }} (cat)
+          {{ category }} hey
         </div>
         {% endfor %}
         <div class="nav_unselected">
-          Bar
+          {{ g.current_category }}
         </div>
+        -->
       </nav>
-      -->
     </div>
     <div class="content">
       {% block content %}{% endblock %}
@@ -26,7 +26,7 @@
     <div class="footer">
       <p>
         <center>
-          <i>Copyright © 2022 Christer Enfors</i>
+          <i>MarkdownCMS</i>
         </center>
       </p>
     </div>

@@ -1,7 +1,7 @@
 import os
 
 from flask import (
-    Blueprint, render_template
+    Blueprint, render_template, g
 )
 
 from werkzeug.exceptions import abort
@@ -27,7 +27,10 @@ def page(page_name):
 
     if page.code != 200:
         abort(page.code, page.html)
-    return render_template("page/index.html", content=page.html)
+
+    g.categories = ["Foo", "Bar"]
+    g.current_category = "Foo"
+    return render_template("page/index.html", content=page.html, current_category="value")
     # return page.html
 
 

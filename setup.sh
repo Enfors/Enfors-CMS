@@ -1,2 +1,2 @@
-export FLASK_APP=enforscms
+export FLASK_APP=markdowncms
 export FLASK_ENV=development

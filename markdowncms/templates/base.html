@@ -6,6 +6,7 @@
 <body>
   <div class="canvas">
     <div class="header">
+      <!-- <img width="80" style="float:right" src="{{ url_for('static', filename='scania-logo.png') }}"> -->
       {% block header %}{% endblock %}
       <nav>
         <!--
@@ -18,6 +19,15 @@
           {{ g.current_category }}
         </div>
         -->
+        <div class="nav_selected">
+          <a href="/">Start</a>
+        </div>
+        <div class="nav_unselected">
+          <a href="/ci-monitor">CI Monitor</a>
+        </div>
+        <div class="nav_unselected">
+          <a href="/devops-team">DevOps Team</a>
+        </div>
       </nav>
     </div>
     <div class="content">

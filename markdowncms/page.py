@@ -51,12 +51,15 @@ class Page:
             self.markdown = None
 
     def load(self):
+        contents_dir = os.path.join(os.getenv("MARKDOWNCMS_CONTENTS_DIR"), "pages")
+
         try:
-            with open(os.path.join("page", f"{self.name}.md"), "r") as f:
+            file_name = os.path.join(contents_dir, f"{self.name}.md")
+            with open(file_name, "r") as f:
                 self.markdown = f.read()
         except FileNotFoundError:
             self.code = 404
-            self.html = f"File {self.name}.md not found"
+            self.html = f"File {file_name} not found"
             return self.html
 
         self.html = markdown.markdown(self.markdown)

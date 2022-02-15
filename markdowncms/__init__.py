@@ -50,7 +50,7 @@ def create_app(test_config=None):
     updating = False
     @app.route("/admin/update-contents")
     def update_contents():
-        for update_script in ["update.sh", "update.batt"]:
+        for update_script in ["update.sh", "update.bat"]:
             try:
                 command = [os.path.join(contents_dir, update_script)]
                 output = subprocess.check_output(command)

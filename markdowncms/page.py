@@ -21,7 +21,7 @@ def index():
     return render_template("page/index.html", content=page.html)
 
 
-@bp.route("/<page_name>")
+@bp.route("/<path:page_name>")
 def page(page_name):
     page = Page(page_name)
 

@@ -55,7 +55,7 @@ def create_app(test_config=None):
                 command = [os.path.join(contents_dir, update_script)]
                 output = subprocess.check_output(command)
                 return "<h1>Updating contents</h1><pre>" + output.decode("utf-8") + "</pre>"
-            except FileNotFoundError:
+            except (FileNotFoundError, OSError) as e:
                 # This version of update_script (update.sh or update.bat)
                 # exist; try with the next one.
                 continue

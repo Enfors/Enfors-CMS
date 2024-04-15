@@ -30,7 +30,8 @@ def page(page_name):
 
     g.categories = ["Foo", "Bar"]
     g.current_category = "Foo"
-    return render_template("page/index.html", content=page.html, current_category="value")
+    return render_template("page/index.html", content=page.html,
+                           current_category="value")
     # return page.html
 
 
@@ -51,7 +52,8 @@ class Page:
             self.markdown = None
 
     def load(self):
-        contents_dir = os.path.join(os.getenv("MARKDOWNCMS_CONTENTS_DIR"), "pages")
+        contents_dir = os.path.join(os.getenv("MARKDOWNCMS_CONTENTS_DIR"),
+                                    "pages")
 
         try:
             file_name = os.path.join(contents_dir, f"{self.name}.md")

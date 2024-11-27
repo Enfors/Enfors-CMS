@@ -1,0 +1,379 @@
+<!-- Based on a tutorial at https://blog.logrocket.com/create-responsive-mobile-menu-with-css-no-javascript/ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- App title -->
+    <title>Responsive Pure CSS Menu</title>
+
+    <!-- Link CSS file -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  
+  <body>
+    <!-- Navigation bar -->
+    <header class="header">
+      <!-- Logo -->
+      <a href="#" class="logo">TTRPG Hangout</a>
+      <!-- Hamburget icon -->
+      <input class="side-menu" type="checkbox" id="side-menu"/>
+      <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
+
+      <!-- Menu -->
+      <nav class="nav">
+        <ul class="menu">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Articles</a></li>
+          <li><a href="#">About</a></li>
+          <li class="subnav">
+            <p class="subnavbtn">Contact <i class"fa fa-caret-down"></i></p>
+            <div class="subnav-content">
+              <a href="#">Email</a>
+              <a href="#">Mastodon</a>
+              <a href="#">Phone</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- Main content -->
+    <main>
+      <article>
+        <h1>
+          Some content
+        </h1>
+        <p>
+          More content
+        </p>
+        <p>Uldorion is a setting for <a href="dungeons_dragons.html">Dungeons &amp; Dragons</a> campaigns of my own invention. It is design with the intention of being a <a href="hexcrawl.html">Hexcrawl</a>.</p>
+<h1 id="map">Map</h1>
+<p>This map is being drawn on my tablet. The hexagon pattern, Hexagon-pattern-29x20-transparent.png, was generated using <a href="https://pattern.monster/hexagon-1/">https://pattern.monster/hexagon-1/</a>, then made transparent using Gimp.</p>
+<h2 id="specifications">Specifications</h2>
+<ul>
+<li>Image size: 3680x2973 px</li>
+<li>Layers:
+<ul>
+<li>Coords</li>
+<li>Labels</li>
+<li>Main</li>
+<li>Over land color</li>
+<li>Land color</li>
+<li>Water color</li>
+<li>Grid</li>
+</ul></li>
+<li>Brushes:
+<ul>
+<li>Shores: 5</li>
+<li>Cities/towns: 2</li>
+<li>Hills: 3
+<ul>
+<li>Hill shadows: 2</li>
+</ul></li>
+<li>Road dots: 3</li>
+<li>Trees: 2</li>
+<li>Text: 1</li>
+<li>Coordinates: 1</li>
+</ul></li>
+<li>Colors:
+<ul>
+<li>Water: #3AB1D4</li>
+<li>Grasslands: #D3E486</li>
+<li>Forests: #56A13A</li>
+<li>Hills: #C38932</li>
+<li>Mountains: #65493B &amp; #877164</li>
+<li>Mountain shadows: #433832</li>
+</ul></li>
+</ul>
+<h1 id="geography-and-regions">Geography and regions</h1>
+<ul>
+<li>Starting area: <a href="lestaria.html">Lestaria</a></li>
+</ul>
+<h1 id="politics">Politics</h1>
+<h1 id="major-factions">Major factions</h1>
+<h1 id="notable-locations">Notable locations</h1>
+<h2 id="vault-of-the-shrieking-wind">Vault of the Shrieking Wind</h2>
+<p>Main article: <a href="vault_of_the_shrieking_wind.html">Vault of the Shrieking Wind</a></p>
+<p>I want to construct a multi-level dungeon that players can come across as early as first player level. The players are given a quest which only includes the first level of the dungeon, and which is clearly solved there. But before they leave the dungeon, they discover that the dungeon has more levels below. They therefore face a choice - return to town to complete the quest, or delve deeper into the darkness of the dungeon's lower levels?</p>
+<p>After the players return to town to complete the quest, they are given another quest which leads them elsewhere. Again, they are faced with an unspoken question - proceed with the new quest, or return to explore the lower levels of the dungeon?</p>
+<h3 id="backstory">Backstory</h3>
+<p>The dungeon lies beneath the ruins of a temple in the hills west of <a href="springhaven.html">Springhaven</a>. The temple was abandoned long ago and is now overrun by monsters. The deeper you delve, the fiercer the monsters you will face.</p>
+<h3 id="dungeon-design-goals">Dungeon design goals</h3>
+<p>All but the first levels of the dungeon should be entirely optional for the players in order to complete the main plot of the campaign. The dungeon should almost feel like its own ecosystem, with the denizens of the various levels living in some kind of symbiosis with one another - at least to some extent. Generally, monsters in the upper levels fear what dwells below.</p>
+<p>Once the players reach a new dungeon level, there should be an initial encounter which is of significant difficulty, so that first level players who wander into the second dungeon level will realize their mistake as soon as possible.</p>
+<ol>
+<li><p>Design principles</p>
+<ul>
+<li><p>Inspired by <a href="jaquaysing_the_dungeon.html">Jaquaysing the Dungeon</a>.</p></li>
+<li><p>Loops. Each level should have looping designs, giving the players several options for which way to traverse it. For this to be meaningful, there needs to be enough information available to the players to make informed navigation decisions.</p></li>
+<li><p>Several entrances. All dungeon design guidelines mention this, but I'm not completely sure why. I guess it gives players an opporunity to find an alternative entrance, and get the satisfaction of being able to reach something in the dungeon "easier" than through the main entrance.</p></li>
+</ul></li>
+</ol>
+<h3 id="navigation-inside-the-dungeon">Navigation inside the dungeon</h3>
+<p>There should basically be a stairwell in a central location that connects all the levels, but you can only reach each level by first finding the key (literally or figuratively) on the level above it. That way, you can quickly traverse from the surface to the lower levels once you've gained access to them.</p>
+<h3 id="first-dungeon-level-for-level-1-players">First dungeon level: For level 1 players</h3>
+<ol>
+<li><p>Overview</p>
+<p>The first level is overrun by goblins. In some location the players will be able to overhear the goblins talking fearfully about the "lower levels" - perhaps they threaten to throw a misbehaving goblin down there. Then, when the players complete the quest in the first level without having visited any of the lower levels, they realize that the lower levels are entirely optional.</p></li>
+</ol>
+<h3 id="second-dungeon-level-for-level-3-players">Second dungeon level: For level 3 players</h3>
+<h3 id="third-dungeon-level-for-level-5-players">Third dungeon level: For level 5 players</h3>
+<h3 id="fourth-dungeon-level-for-level-7-players">Fourth dungeon level: For level 7 players</h3>
+<h3 id="fifth-dungeon-level-for-level-9-players">Fifth dungeon level: For level 9 players</h3>
+<h3 id="sixth-dungeon-level-for-level-11-players">Sixth dungeon level: For level 11 players</h3>
+<h3 id="seventh-dungeon-level-for-level-13-players">Seventh dungeon level: For level 13 players</h3>
+<h2 id="unnamed-helpful-dungeon">Unnamed helpful dungeon</h2>
+<p>Main article: <a href="the_living_dungeon.html">The Living Dungeon</a></p>
+<h1 id="other-information">Other information</h1>
+<ul>
+<li><a href="uldorion_pantheon.html">Uldorion Pantheon</a></li>
+<li><a href="uldorion_items_overview.html">Uldorion items overview</a></li>
+<li><a href="uldorion_npcs_overview.html">Uldorion NPCs overview</a></li>
+<li><a href="uldorion_moonfall.html">Uldorion Moonfall</a></li>
+<li><a href="uldorion_proto_humanoids.html">Uldorion Proto Humanoids</a></li>
+</ul>
+<h1 id="campaigns-in-uldorion">Campaigns in Uldorion</h1>
+<ul>
+<li><a href="uldorion_the_rediscovered_lands.html">Uldorion - The Rediscovered Lands</a></li>
+<li><a href="tarek_s_dnd_campaign.html">Tarek's DnD Campaign</a></li>
+<li><a href="darkness_over_uldorion.html">Darkness over Uldorion</a> (deprecated)</li>
+</ul>
+<h1 id="hexes">Hexes</h1>
+<h2 id="lestaria">Lestaria</h2>
+<h3 id="greater-haven">Greater Haven</h3>
+<ol>
+<li><p>Hex L20: Springhaven hex <span class="tag" data-tag-name="coastal"><span class="smallcaps">coastal</span></span> <span class="tag" data-tag-name="river"><span class="smallcaps">river</span></span> <span class="tag" data-tag-name="farms"><span class="smallcaps">farms</span></span> <span class="tag" data-tag-name="roads"><span class="smallcaps">roads</span></span></p>
+<ul>
+<li>This is where <a href="springhaven.html">Springhaven</a> is.</li>
+<li>Coastal, farms, river, roads.</li>
+<li>There is a sink hole here that leads to a <a href="uldorion_proto_humanoids.html">Uldorion Proto Humanoids</a> ruin.</li>
+<li>When the PCs first come across it, a young boy has fallen/wandered into the sinkhole to explore what is beneath, and must now be retrieved.</li>
+</ul>
+<ol>
+<li><p>The sinkhole ruin</p>
+<p>This used to be a minor <em>proto humanoid</em> temple to the <em>Prime Mover</em>.</p>
+<p>I'm using the Location Crafter to come up with some ideas for this.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Num</th>
+<th>Locations</th>
+<th>Encounters</th>
+<th>Objects</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Expected</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Hallway</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Antechamber</td>
+<td>None</td>
+<td>Expected</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Storage</td>
+<td>None</td>
+<td>Carvings of daily life</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Hallway</td>
+<td>Rats</td>
+<td>None</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Expected</td>
+<td>None</td>
+<td>Mysterious artefact</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Office</td>
+<td>Spiders</td>
+<td>Carvings</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Clergy chamber</td>
+<td>Young boy (U)</td>
+<td>None</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Complete</td>
+<td>None</td>
+<td>Rubble</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>Ceremonial hall</td>
+<td>Random</td>
+<td>Expected</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><p>Locations</p>
+<ol>
+<li><p>Location 1: Hallway</p>
+<ul>
+<li>Expected, None, Expected</li>
+<li>This is a hallway. Large, out of proportion doorways.</li>
+<li>Carvings of a landscape on the wall.</li>
+<li>1, 1, 1.</li>
+</ul></li>
+<li><p>Location 2: Waiting area</p>
+<ul>
+<li>Expected, Spiders, Expected.</li>
+<li>Waiting area. Stone benches, but too big for humans.</li>
+<li>There are spiders in the roof, trying to ambush the PCs.</li>
+<li>2, 2, 2.</li>
+</ul></li>
+<li><p>Location 3: Antechamber</p>
+<ul>
+<li>Antechamber, None, Carvings.</li>
+<li>The large antechamber has carvings along the walls, depicting various otherworldly creatures (the Elder gods, but the PCs don't know that).</li>
+<li>3, 3, 3.</li>
+</ul></li>
+<li><p>Location 4: Storage</p>
+<ul>
+<li>Storage, Spiders, Carvings of daily life</li>
+<li>Storage chamber with carvings of large, stocky humanoids in everyday situations. Comparing the size of the humanoids to other carvings of wolves (all natural size) reveals that the humanoids are around 3 meters tall. There are spiders here.</li>
+<li>4, 4, 4.</li>
+</ul></li>
+<li><p>Location 5: Office</p>
+<ul>
+<li>Office, None, None.</li>
+<li>This is an empty office, but simply appears like an empty room.</li>
+<li>5, 5, 5.</li>
+</ul></li>
+<li><p>Location 6: Office</p>
+<ul>
+<li>Office, Young boy, Expected.</li>
+<li>Empty office. The young boy is here, stuck in the rubble on the floor.</li>
+<li>6, 6, 6.</li>
+</ul></li>
+<li><p>Location 7: Clergy chamber</p>
+<ul>
+<li>Clergy chamber, Spiders, Expected.</li>
+<li>This seems like some sort of bedroom. A search reveals a strange artefact. There are spiders here.</li>
+<li>7, 7, 2.</li>
+</ul></li>
+<li><p>Location 8: Clergy chamber</p>
+<ul>
+<li>Clergy chamber, Expected, None.</li>
+<li>Another clergy chamber. There is nothing here.</li>
+<li>8, 3, 3.</li>
+</ul></li>
+<li><p>Location 9: Hallway</p>
+<ul>
+<li>Expected, None, Carvings of daily life</li>
+<li>Hallway, with carvings of daily life.</li>
+<li>4, 4, 4.</li>
+</ul></li>
+</ol></li>
+</ol></li>
+</ol></li>
+<li><p>Hex K20: North of Springhaven <span class="tag" data-tag-name="coastal"><span class="smallcaps">coastal</span></span> <span class="tag" data-tag-name="road"><span class="smallcaps">road</span></span></p>
+<p>Neighbors: …..<em>Hex J20</em> <em>Hex J19</em>…<em>Hex J21</em> <em>Hex K19</em>…<em>Hex K21</em> …..<em>Hex L20</em></p>
+<ul>
+<li>Hills to the north of <a href="springhaven.html">Springhaven</a>.</li>
+<li>Contains the <a href="springhaven_silver_mine.html">Springhaven Silver Mine</a>.</li>
+</ul></li>
+<li><p>Hex K19: Northwest of Springhaven</p>
+<p>Neighbors: …..<em>Hex J19</em> <em>Hex K18</em>…<em>Hex K20</em> <em>Hex L18</em>…<em>Hex L20</em> …..<em>Hex L19</em></p>
+<ul>
+<li>Grasslands to the northeast of <a href="springhaven.html">Springhaven</a>.</li>
+<li>Locations:
+<ul>
+<li>A small lake.</li>
+<li>Some dead trees.</li>
+<li>Cairn.</li>
+</ul></li>
+</ul></li>
+<li><p>Hex L19: Southwest of Springhaven</p>
+<p>Neighbors: …..<em>Hex K19</em> <em>Hex L18</em>…<em>Hex L20</em> <em>Hex M18</em>…<em>Hex M20</em> …..<em>Hex M19</em></p>
+<ul>
+<li>Hills to the southwest of <a href="springhaven.html">Springhaven</a>.</li>
+<li>Locations:
+<ul>
+<li>Columns.</li>
+<li>Cairn.</li>
+</ul></li>
+</ul></li>
+<li><p>Hex M20</p>
+<p>Neighbors: …..<em>Hex L20</em> <em>Hex L19</em>…<em>Hex L21</em> <em>Hex M19</em>…<em>Hex M21</em> …..<em>Hex N20</em></p>
+<ul>
+<li>Grasslands to the south of Springhaven.</li>
+<li>Locations:
+<ul>
+<li>Lake.</li>
+<li>Flower patch.</li>
+<li>Cliff to the northwest, near <em>Hex L19</em>.</li>
+</ul></li>
+</ul></li>
+</ol>
+<h3 id="westhammer-woods">Westhammer Woods</h3>
+<p>Main article: <a href="westhammer_woods.html">Westhammer Woods</a></p>
+<ol>
+<li><p>Hex I19</p>
+<p>Neighbors: …..<em>Hex H19</em> <em>Hex J18</em>…<em>Hex I20</em> <em>Hex K18</em>…<em>Hex J20</em> …..<em>Hex J19</em></p></li>
+<li><p>Hex J18</p>
+<p>Neighbors: …..<em>Hex I18</em> <em>Hex I17</em>…<em>Hex I19</em> <em>Hex J17</em>…<em>Hex J19</em> …..<em>Hex K18</em></p></li>
+<li><p>Hex J19</p>
+<p>Neighbors: …..<em>Hex I19</em> <em>Hex J18</em>…<em>Hex J20</em> <em>Hex K18</em>…<em>Hex K20</em> …..<em>Hex K19</em></p>
+<ul>
+<li>Locations:
+<ul>
+<li><a href="falcon_s_ridge.html">Falcon's Ridge</a></li>
+<li><a href="waterfall_glade.html">Waterfall Glade</a></li>
+<li><a href="darkcrest_cemetery.html">Darkcrest Cemetery</a></li>
+</ul></li>
+</ul></li>
+</ol>
+<h3 id="mountains">Mountains</h3>
+<ol>
+<li><p>Hex M21</p>
+<p>Neighbors: …..<em>Hex L21</em> <em>Hex M20</em>…<em>Hex </em> <em>Hex N20</em>…<em>Hex </em> …..<em>Hex N21</em></p>
+<ul>
+<li>Low, sparse mountains.</li>
+</ul></li>
+<li><p>Hex N21</p>
+<p>Neighbors: …..<em>Hex M21</em> <em>Hex N20</em>…<em>Hex </em> <em>Hex O20</em>…<em>Hex O22</em> …..<em>Hex O21</em></p>
+<ul>
+<li>Slightly more dense mountains than to the north.</li>
+<li>To the southeast, near the border to <em>Hex O22</em>, there is a narrow pass leading northeast / southwest.
+<ul>
+<li>Passthrough time: 2h</li>
+</ul></li>
+</ul></li>
+</ol>
+<h1 id="see-also">See also</h1>
+<ul>
+<li><a href="uldorion_history.html">Uldorion History</a></li>
+<li><a href="uldorion_campaign_style.html">Uldorion Campaign Style</a>.</li>
+<li><a href="uldorion_ideas.html">Uldorion Ideas</a></li>
+<li><a href="uldorion_situations.html">Uldorion Situations</a></li>
+<li><a href="hexmap24.html">Hexmap24</a></li>
+</ul>
+
+      </article>
+    </main>
+  </body>
+</html>

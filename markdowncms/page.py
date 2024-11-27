@@ -13,12 +13,12 @@ bp = Blueprint("page", __name__)
 
 @bp.route("/")
 def index():
-    page = Page("index")
+    page = Page("index.html")
 
     if page.code != 200:
         abort(page.code, page.html)
 
-    return render_template("page_template.html", content=page.html)
+    return render_template("index.html", content=page.html)
 
 
 @bp.route("/<page_name>")

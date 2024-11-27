@@ -13,7 +13,8 @@ def create_app(test_config=None):
     """
     Create and configure the app.
     """
-    template_dir = os.path.join(os.environ["MARKDOWNCMS_CONTENTS_DIR"], "templates")
+    # template_dir = os.path.join(os.environ["MARKDOWNCMS_CONTENTS_DIR"], "templates")
+    template_dir = "../templates"
     app = Flask(__name__, instance_relative_config=True,
                 template_folder=template_dir)
     app.config.from_mapping(SECRET_KEY="dev",
@@ -37,10 +38,10 @@ def create_app(test_config=None):
     # A simple testing page
     @app.route("/hello")
     def hello():
-        return "<h1>Hello world!</h1>"
+        return "<h1>Hello world.</h1>"
 
     from . import page
     app.register_blueprint(page.bp)
-    app.add_url_rule("/", endpoint="index")
+    # app.add_url_rule("/", endpoint="lindex.html")
 
     return app
